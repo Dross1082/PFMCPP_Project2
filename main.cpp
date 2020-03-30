@@ -17,8 +17,12 @@ video: Chapter 2 - Part 3
  1) Write down the names of all of the primitives available in C++ (excluding wchar_t)
  put them here: 
  
- 
- 
+ int    //integer
+ bool   //boolean
+ float  //float
+ double //double
+ char   //character
+ void   //void
  
  
  
@@ -66,9 +70,32 @@ void variableDeclarations()
     //example:
     int number = 2; //declaration of a primitive named 'number' with an initial value of '2'
     
+    //int
+    int myAge = 37;
+    int numberOfFingers = 10;
+    int carTires = 4;
+
+    //bool
+    bool hasKids = true;
+    bool isTired = true;
+    bool wellRested = false;
+
+    //float
+    float coffeeDrank = 2.5f;
+    float gasBurned = 14.2f;
+    float piecesOfCandy = 0.5f;
+
+    //double
+    double amountOfGin = 1.75;
+    double costOfGum = 0.99;
+    double groceryBill = 63.49;
+
+    //char
+    char firstInitial = 'D';
+    char middleInitial = 'E';
+    char lastInitial = 'R';
     
-    
-    ignoreUnused(number); //passing each variable declared to the ignoreUnused() function
+    ignoreUnused(number, myAge, numberOfFingers, carTires, hasKids, isTired, wellRested, coffeeDrank, gasBurned, piecesOfCandy, amountOfGin, costOfGum, groceryBill, firstInitial, middleInitial, lastInitial); //passing each variable declared to the ignoreUnused() function
 }
 /*
  10 functions
@@ -83,42 +110,90 @@ bool rentACar(int rentalDuration, int carType = 0)  //function declaration with 
 /*
  1)
  */
+bool coffeeReady (float scoopsUsed, int cupsBrewed)
+{
+    ignoreUnused(scoopsUsed, cupsBrewed);
+    return {};
+}
 
 /*
  2)
  */
 
+void houseLightingPerRoom (int kitchen, int bedroom, int livingroom)
+{
+    ignoreUnused(kitchen, bedroom, livingroom);
+}
+
 /*
  3)
  */
+int trainsRunning (int northbound, int southbound, int eastbound, int westbound = 2)
+{
+    ignoreUnused(northbound, southbound, eastbound, westbound);
+    return {};
+}
 
 /*
  4)
  */
+bool isRaining (int puddlesOnGround, double waterCollected, bool roadsAreWet)
+{
+    ignoreUnused(puddlesOnGround, waterCollected, roadsAreWet);
+    return {};
+}
 
 /*
  5)
  */
+void equalizerBands (int lowBand, int midBand, int highBand, bool highShelfEnabled)
+{
+    ignoreUnused(lowBand, midBand, highBand, highShelfEnabled);
+}
 
 /*
  6)
  */
+char favoriteDrink (char ingredients, int drinkQauntity, double amountPerServing)
+{
+    ignoreUnused(ingredients, drinkQauntity, amountPerServing);
+    return {};
+}
 
 /*
  7)
  */
+void guitarRepair (int strings = 6, char stringType = 'n', float timeSpent = 1.5f)
+{
+    ignoreUnused(strings, stringType, timeSpent);
+}
 
 /*
  8)
  */
+bool fireIsBurning (float piecesOfWood, double logBurnTime)
+{
+    ignoreUnused(piecesOfWood, logBurnTime);
+    return {};
+}
 
 /*
  9)
  */
+char dayOfTheWeek (bool quarantineEnabled, int moviesWatched, int drinks, int bagsOfGoldfish)
+{
+    ignoreUnused(quarantineEnabled, moviesWatched, drinks, bagsOfGoldfish);
+    return {};
+}
 
 /*
  10)
  */
+double milesDriven (float timeDriving, int songsHeard, double averageSpeed)
+{
+    ignoreUnused(timeDriving, songsHeard, averageSpeed);
+    return {};
+}
 
 int main()
 {
@@ -126,27 +201,27 @@ int main()
     auto carRented = rentACar(6, 2); 
     
     //1)
-    
+    auto getCaffeine = coffeeReady(5.3f, 5);
     //2)
-    
+    houseLightingPerRoom(4,4,6);
     //3)
-    
+    auto trainsInService = trainsRunning(1, 2, 3, 4);
     //4)
-    
+    auto weatherOutside = isRaining(1000, 2.43, true);
     //5)
-    
+    equalizerBands(1, 2, 3, true);
     //6)
-    
+    auto ginAndTonic = favoriteDrink('I', 2, 2.5);
     //7)
-    
+    guitarRepair(6, 'n', 1.5);
     //8)
-    
+    auto makeAFire = fireIsBurning(4.2f, 3.22);
     //9)
-    
+    auto Sunday = dayOfTheWeek(true, 2, 4, 2);
     //10)
+    auto roadTrip = milesDriven(3.4f, 25, 75.22);
     
-    
-    ignoreUnused(carRented);
+    ignoreUnused(carRented, getCaffeine, trainsInService, weatherOutside, ginAndTonic, makeAFire, Sunday, roadTrip);
     std::cout << "good to go!" << std::endl;
     return 0;    
 }
